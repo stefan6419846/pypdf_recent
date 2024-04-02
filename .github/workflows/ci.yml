@@ -23,7 +23,6 @@ jobs:
       with:
         repository: 'py-pdf/pypdf'
         submodules: 'recursive'
-    - run: ls -l
     - name: Cache Downloaded Files
       id: cache-downloaded-files
       uses: actions/cache@v4
@@ -39,7 +38,7 @@ jobs:
         python -m pip install --upgrade pip
     - name: Install requirements (Python 3)
       run: |
-        pip install -r pypdf/requirements/ci-3.11.in
+        pip install -r requirements/ci.in
     - name: Remove pycryptodome and cryptography
       run: |
         pip uninstall pycryptodome cryptography -y
@@ -53,15 +52,12 @@ jobs:
       if: matrix.use-crypto-lib == 'pycryptodome'
     - name: Install pypdf
       run: |
-        cd pypdf
         pip install .
     - name: Prepare
       run: |
-        cd pypdf
         python -c "from tests import download_test_pdfs; download_test_pdfs()"
     - name: Test with pytest
       run: |
-        cd pypdf
         python -m pytest tests --cov=pypdf --cov-append -n auto -vv
 
   codestyle:
@@ -83,22 +79,18 @@ jobs:
         python -m pip install --upgrade pip
     - name: Install requirements
       run: |
-        pip install -r pypdf/requirements/ci-3.11.in
+        pip install -r requirements/ci.in
     - name: Install pypdf
       run: |
-        cd pypdf
         pip install .
     - name: Test with ruff
       run: |
-        cd pypdf
         ruff --version
         ruff .
     - name: Test with mypy
       run : |
-        cd pypdf
         mypy pypdf
     - name: Test docs build
       run: |
-        pip install -r pypdf/requirements/docs.in
-        cd pypdf
+        pip install -r requirements/docs.in
         sphinx-build -n -W --keep-going -T -b html docs build/sphinx/html
