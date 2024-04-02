@@ -23,6 +23,7 @@ jobs:
       with:
         repository: 'py-pdf/pypdf'
         submodules: 'recursive'
+    - run: ls -l
     - name: Cache Downloaded Files
       id: cache-downloaded-files
       uses: actions/cache@v4
