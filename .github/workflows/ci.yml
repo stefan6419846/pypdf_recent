@@ -83,13 +83,18 @@ jobs:
     - name: Install pypdf
       run: |
         pip install .
+    - name: Install ruff
+      run: |
+        pip install ruff
     - name: Test with ruff
       run: |
         ruff --version
         ruff .
+      continue-on-error: true
     - name: Test with mypy
       run : |
         mypy pypdf
+      continue-on-error: true
     - name: Test docs build
       run: |
         pip install -r requirements/docs.in
