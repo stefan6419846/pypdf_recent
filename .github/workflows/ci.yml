@@ -102,8 +102,8 @@ jobs:
       continue-on-error: true
     - name: Fix docs requirements
       run: |
-        sed --in-place 's/sphinx_rtd_theme<2.0.0/sphinx_rtd_theme/'
-        sed --in-place 's/myst_parser==0.16.1/myst_parser/'
+        sed --in-place 's/sphinx_rtd_theme<2.0.0/sphinx_rtd_theme/' requirements/docs.in
+        sed --in-place 's/myst_parser==0.16.1/myst_parser/' requirements/docs.in
     - name: Test docs build
       run: |
         pip install -r requirements/docs.in
