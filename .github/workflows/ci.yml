@@ -23,6 +23,10 @@ jobs:
       with:
         repository: 'py-pdf/pypdf'
         submodules: 'recursive'
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        path: 'recent'
     - name: Cache Downloaded Files
       id: cache-downloaded-files
       uses: actions/cache@v4
@@ -36,13 +40,9 @@ jobs:
     - name: Upgrade pip
       run: |
         python -m pip install --upgrade pip
-    - name: Fix CI requirements
-      run: |
-        sed --in-place 's/fpdf2==2.4.1/fpdf2/' requirements/ci.in
-        sed --in-place 's/# ruff  # only take this for 3.11/ruff/' requirements/ci.in
     - name: Install requirements
       run: |
-        pip install -r requirements/ci.in
+        pip install -r recent/requirements.txt
     - name: Remove pycryptodome and cryptography
       run: |
         pip uninstall pycryptodome cryptography -y
@@ -74,6 +74,10 @@ jobs:
       with:
         repository: 'py-pdf/pypdf'
         submodules: 'recursive'
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        path: 'recent'
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
@@ -81,13 +85,9 @@ jobs:
     - name: Upgrade pip
       run: |
         python -m pip install --upgrade pip
-    - name: Fix CI requirements
-      run: |
-        sed --in-place 's/fpdf2==2.4.1/fpdf2/' requirements/ci.in
-        sed --in-place 's/# ruff  # only take this for 3.11/ruff/' requirements/ci.in
     - name: Install requirements
       run: |
-        pip install -r requirements/ci.in
+        pip install -r recent/requirements.txt
     - name: Install pypdf
       run: |
         pip install .
@@ -100,11 +100,6 @@ jobs:
       run : |
         mypy pypdf
       continue-on-error: true
-    - name: Fix docs requirements
-      run: |
-        sed --in-place 's/sphinx_rtd_theme<2.0.0/sphinx_rtd_theme/' requirements/docs.in
-        sed --in-place 's/myst_parser==0.16.1/myst_parser/' requirements/docs.in
     - name: Test docs build
       run: |
-        pip install -r requirements/docs.in
         sphinx-build -n -W --keep-going -T -b html docs build/sphinx/html
