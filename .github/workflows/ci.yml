@@ -36,9 +36,10 @@ jobs:
     - name: Upgrade pip
       run: |
         python -m pip install --upgrade pip
-    - name: Fix fpdf version
+    - name: Fix CI requirements
       run: |
         sed --in-place 's/fpdf2==2.4.1/fpdf2/' requirements/ci.in
+        sed --in-place 's/# ruff  # only take this for 3.11/ruff/' requirements/ci.in
     - name: Install requirements
       run: |
         pip install -r requirements/ci.in
@@ -80,15 +81,16 @@ jobs:
     - name: Upgrade pip
       run: |
         python -m pip install --upgrade pip
+    - name: Fix CI requirements
+      run: |
+        sed --in-place 's/fpdf2==2.4.1/fpdf2/' requirements/ci.in
+        sed --in-place 's/# ruff  # only take this for 3.11/ruff/' requirements/ci.in
     - name: Install requirements
       run: |
         pip install -r requirements/ci.in
     - name: Install pypdf
       run: |
         pip install .
-    - name: Install ruff
-      run: |
-        pip install ruff
     - name: Test with ruff
       run: |
         ruff --version
@@ -98,6 +100,10 @@ jobs:
       run : |
         mypy pypdf
       continue-on-error: true
+    - name: Fix docs requirements
+      run: |
+        sed --in-place 's/sphinx_rtd_theme<2.0.0/sphinx_rtd_theme/'
+        sed --in-place 's/myst_parser==0.16.1/myst_parser/'
     - name: Test docs build
       run: |
         pip install -r requirements/docs.in
