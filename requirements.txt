@@ -14,7 +14,7 @@ pytest-socket==0.7.0
 pytest-timeout==2.3.1
 pytest-xdist==3.5.0
 pytest-cov==5.0.0
-ruff==0.4.0
+ruff==0.4.1
 typeguard==4.2.1
 types-dataclasses==0.6.6  # Can probably be removed due to dropping Python 3.6.
 types-Pillow==10.2.0.20240415
