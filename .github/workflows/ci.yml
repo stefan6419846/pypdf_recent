@@ -94,7 +94,7 @@ jobs:
     - name: Test with ruff
       run: |
         ruff --version
-        ruff .
+        ruff check .
       continue-on-error: true
     - name: Test with mypy
       run : |
