@@ -21,7 +21,7 @@ types-Pillow==10.2.0.20240520
 pyyaml==6.0.1
 
 # From docs.in
-sphinx==7.4.0
+sphinx==7.4.4
 sphinx_rtd_theme==2.0.0
 myst_parser==3.0.1
 attrs==23.2.0  # required for myst, but not automatically installed by myst  # Still needed?
