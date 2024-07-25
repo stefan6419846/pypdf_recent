@@ -6,11 +6,12 @@ on:
 
 jobs:
   tests:
-    name: "crypto-lib: ${{ matrix.use-crypto-lib }}"
+    name: "Python ${{ matrix.python }} with crypto-lib: ${{ matrix.use-crypto-lib }}"
     runs-on: ubuntu-latest
     strategy:
       matrix:
         use-crypto-lib: ["cryptography", "pycryptodome", "none"]
+        python: ["3.12", "3.13-dev"]
     steps:
     - name: Update APT packages
       run:
@@ -36,7 +37,7 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.12'
+        python-version: ${{ matrix.python }}
     - name: Upgrade pip
       run: |
         python -m pip install --upgrade pip
