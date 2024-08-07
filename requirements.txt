@@ -18,7 +18,7 @@ ruff==0.5.6
 typeguard==4.3.0
 types-dataclasses==0.6.6  # Can probably be removed due to dropping Python 3.6.
 types-Pillow==10.2.0.20240520
-pyyaml==6.0.1
+pyyaml==6.0.2
 
 # From docs.in
 sphinx==7.4.7
