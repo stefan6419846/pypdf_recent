@@ -64,6 +64,9 @@ jobs:
     - name: Test with pytest
       run: |
         python -m pytest tests --cov=pypdf --cov-append -n auto -vv
+    - name: List files
+      run: |
+        ls -la
 
   codestyle:
     name: Check code style issues
