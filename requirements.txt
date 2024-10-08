@@ -22,6 +22,6 @@ pyyaml==6.0.2
 
 # From docs.in
 sphinx==7.4.7
-sphinx_rtd_theme==2.0.0
+sphinx_rtd_theme==3.0.0
 myst_parser==4.0.0
 attrs==24.2.0  # required for myst, but not automatically installed by myst  # Still needed?
