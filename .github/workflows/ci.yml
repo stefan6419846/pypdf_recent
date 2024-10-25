@@ -96,11 +96,9 @@ jobs:
       run: |
         ruff --version
         ruff check .
-      continue-on-error: true
     - name: Test with mypy
       run : |
         mypy pypdf
-      continue-on-error: true
     - name: Test docs build
       run: |
         sphinx-build -n -W --keep-going -T -b html docs build/sphinx/html
