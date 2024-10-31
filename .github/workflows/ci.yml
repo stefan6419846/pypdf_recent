@@ -64,6 +64,9 @@ jobs:
     - name: Test with pytest
       run: |
         python -m pytest tests --cov=pypdf --cov-append -n auto -vv
+    - name: Run benchmark
+      run: |
+        python -m pytest tests/bench.py --benchmark-json output.json
 
   codestyle:
     name: Check code style issues
