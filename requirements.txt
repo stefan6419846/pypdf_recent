@@ -1,5 +1,5 @@
 # From ci.in
-coverage[toml]==7.6.11
+coverage[toml]==7.6.12
 fpdf2==2.8.2
 mypy==1.15.0
 pillow==11.1.0
