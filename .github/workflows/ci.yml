@@ -104,3 +104,10 @@ jobs:
     - name: Test docs build
       run: |
         sphinx-build -n -W --keep-going -T -b html docs build/sphinx/html
+    - name: Check with pre-commit
+      run: |
+        pre-commit run --all-files
+    - name: Checkf for pre-commit updates
+      run: |
+        pre-commit autoupdate
+        git diff --exit-code
