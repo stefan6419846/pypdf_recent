@@ -110,3 +110,4 @@ jobs:
     - name: Checkf for pre-commit updates
       run: |
         pre-commit autoupdate
+        git diff --exit-code
