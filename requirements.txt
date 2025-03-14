@@ -6,14 +6,18 @@ pillow==11.1.0
 pycryptodome==3.21.0
 pytest==8.3.5
 pytest-benchmark==5.1.0
+pytest-cov==6.0.0
 pytest-socket==0.7.0
 pytest-timeout==2.3.1
 pytest-xdist==3.6.1
-pytest-cov==6.0.0
 ruff==0.10.0
 typeguard==4.4.2
-types-Pillow==10.2.0.20240822
+types-pillow==10.2.0.20240822
 pyyaml==6.0.2
+
+# From dev.in
+pre-commit==3.5.0
+flit==3.9.0
 
 # From docs.in
 sphinx==8.2.3
