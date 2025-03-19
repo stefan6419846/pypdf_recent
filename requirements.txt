@@ -16,7 +16,7 @@ types-pillow==10.2.0.20240822
 pyyaml==6.0.2
 
 # From dev.in
-pre-commit==4.1.0
+pre-commit==4.2.0
 flit==3.9.0
 
 # From docs.in
