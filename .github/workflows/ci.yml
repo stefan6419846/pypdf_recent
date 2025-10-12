@@ -20,12 +20,12 @@ jobs:
       run:
         sudo apt-get install ghostscript
     - name: Checkout Code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         repository: 'py-pdf/pypdf'
         submodules: 'recursive'
     - name: Checkout Code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         path: 'recent'
     - name: Cache Downloaded Files
@@ -35,7 +35,7 @@ jobs:
         path: '**/tests/pdf_cache/*'
         key: cache-downloaded-files
     - name: Setup Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version: ${{ matrix.python }}
     - name: Upgrade pip
@@ -73,16 +73,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         repository: 'py-pdf/pypdf'
         submodules: 'recursive'
     - name: Checkout Code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         path: 'recent'
     - name: Setup Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version: '3.13'
     - name: Upgrade pip
