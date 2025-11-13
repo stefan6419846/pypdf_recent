@@ -19,6 +19,11 @@ jobs:
     - name: Install APT dependencies
       run:
         sudo apt-get install ghostscript
+    # https://pillow.readthedocs.io/en/latest/installation/building-from-source.html
+    - name: Install optional APT dependencies
+      run:
+        sudo apt-get install libtiff-dev libjpeg-dev libopenjp2-7-dev zlib1g-dev libfreetype-dev liblcms2-dev libwebp-dev libharfbuzz-dev
+      if: endsWith(matrix.python, '-dev')
     - name: Checkout Code
       uses: actions/checkout@v5
       with:
