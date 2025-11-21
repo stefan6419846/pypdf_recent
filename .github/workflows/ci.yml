@@ -20,12 +20,12 @@ jobs:
       run:
         sudo apt-get install ghostscript
     - name: Checkout Code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         repository: 'py-pdf/pypdf'
         submodules: 'recursive'
     - name: Checkout Code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         path: 'recent'
     - name: Cache Downloaded Files
@@ -73,12 +73,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         repository: 'py-pdf/pypdf'
         submodules: 'recursive'
     - name: Checkout Code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         path: 'recent'
     - name: Setup Python
