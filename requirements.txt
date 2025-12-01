@@ -1,7 +1,7 @@
 # From ci.in
 coverage[toml]==7.12.0
 fpdf2==2.8.5
-mypy==1.18.2
+mypy==1.19.0
 pillow==12.0.0
 pycryptodome==3.23.0
 pytest==9.0.1
