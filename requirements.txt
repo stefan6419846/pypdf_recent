@@ -20,6 +20,6 @@ pre-commit==4.5.0
 flit==3.12.0
 
 # From docs.in
-sphinx==8.2.3
+sphinx==9.0.1
 sphinx_rtd_theme==3.0.2
 myst_parser==4.0.1
