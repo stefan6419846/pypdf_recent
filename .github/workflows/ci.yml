@@ -107,7 +107,7 @@ jobs:
     - name: Check with pre-commit
       run: |
         pre-commit run --all-files
-    - name: Checkf for pre-commit updates
+    - name: Check for pre-commit updates
       run: |
         pre-commit autoupdate
         git diff --exit-code
