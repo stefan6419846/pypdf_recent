@@ -11,7 +11,7 @@ pytest-socket==0.7.0
 pytest-timeout==2.4.0
 pytest-xdist==3.8.0
 ruff==0.15.1
-typeguard==4.5.0
+typeguard==4.5.1
 pyyaml==6.0.3
 
 # From dev.in
