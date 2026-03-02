@@ -31,10 +31,21 @@ jobs:
     - name: Cache Downloaded Files
       id: cache-downloaded-files
       uses: actions/cache@v5
+      if: github.ref == 'refs/heads/main'
       with:
         path: '**/tests/pdf_cache/*'
-        key: cache-downloaded-files-${{ github.run_id }}
-        restore-keys:
+        key: cache-downloaded-files-main-${{ github.run_id }}
+        restore-keys: |
+          cache-downloaded-files-main-
+          cache-downloaded-files
+    - name: Restore Downloaded Files
+      uses: actions/cache/restore@v5
+      if: github.ref != 'refs/heads/main'
+      with:
+        path: '**/tests/pdf_cache/*'
+        key: cache-downloaded-files-main-
+        restore-keys: |
+          cache-downloaded-files-main-
           cache-downloaded-files
     - name: Setup Python
       uses: actions/setup-python@v6
