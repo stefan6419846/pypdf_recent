@@ -3,7 +3,7 @@ arabic-reshaper==3.0.1
 brotli==1.2.1
 coverage[toml]==7.17.0
 cryptography==50.0.2
-fonttools==4.67.0
+fonttools==4.68.0
 fpdf2==2.8.9
 mypy==2.4.0
 pillow==13.0.0
